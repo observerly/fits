@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite'
 
 import typescript from '@rollup/plugin-typescript'
@@ -5,6 +6,9 @@ import typescript from '@rollup/plugin-typescript'
 import { resolve } from 'path'
 
 export default defineConfig({
+  test: {
+    watch: false
+  },
   plugins: [
     typescript({
       tsconfig: './tsconfig.json'
