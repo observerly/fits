@@ -7,7 +7,8 @@ import { resolve } from 'path'
 
 export default defineConfig({
   test: {
-    watch: false
+    watch: false,
+    environment: 'jsdom'
   },
   plugins: [
     typescript({
