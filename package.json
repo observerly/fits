@@ -1,6 +1,26 @@
 {
-  "name": "fits",
+  "name": "@observerly/fits",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/observerly/fits"
+  },
+  "prepublish": "tsc",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/observerly"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/fits.umd.js",
+  "module": "./dist/fits.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/fits.es.js",
+      "require": "./dist/fits.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
