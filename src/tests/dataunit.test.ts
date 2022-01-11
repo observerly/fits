@@ -1,6 +1,6 @@
 import { describe, expect, it, suite } from 'vitest'
 
-import { I, hasDataUnit } from '../dataunit'
+import { I, J, hasDataUnit } from '..'
 
 suite('@observerly/fits Data Unit', () => {
   describe('FITS Big Endian Swop', () => {
@@ -21,6 +21,25 @@ suite('@observerly/fits Data Unit', () => {
     it('I should return the correct value', () => {
       const value = I(64)
       expect(value).toBe(16384)
+    })
+
+    it('J should be defined', () => {
+      expect(J).toBeDefined()
+    })
+
+    it('J should return the correct value', () => {
+      const value = J(8)
+      expect(value).toBe(134217728)
+    })
+
+    it('J should return the correct value', () => {
+      const value = J(32)
+      expect(value).toBe(536870912)
+    })
+
+    it('J should return the correct value', () => {
+      const value = J(64)
+      expect(value).toBe(1073741824)
     })
   })
 
