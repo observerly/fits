@@ -1,0 +1,1 @@
+export { hasDataUnit } from './hasDataUnit'
