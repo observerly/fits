@@ -1,5 +1,5 @@
 // Data Unit
-export { B, hasDataUnit } from './dataunit'
+export { B, I, hasDataUnit } from './dataunit'
 
 // Flexible Image Transport System (FITS)
 export { getFITSBlocks } from './fits'
