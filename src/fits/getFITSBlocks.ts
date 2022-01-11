@@ -1,3 +1,5 @@
+import type { FITSBlock } from '../types'
+
 import { FITS_BLOCK_LENGTH } from './constants'
 
 /**
@@ -8,13 +10,14 @@ import { FITS_BLOCK_LENGTH } from './constants'
  * @param size this is the filesize in bytes
  * @returns the partitioned file into the required number of blocks (and byte offsets) from the FITS standard block size (2880)
  */
-export const getFITSBlocks = (size: number) => {
+export const getFITSBlocks = (size: number): { blocks: FITSBlock[] } => {
   const i: any[] = [...Array(size / FITS_BLOCK_LENGTH)]
 
   const blocks = i.map((_value, index: number) => {
     return {
-      BYTES_OFFSET_START: index + FITS_BLOCK_LENGTH * index,
-      BYTES_OFFSET_END: index + FITS_BLOCK_LENGTH + FITS_BLOCK_LENGTH * index
+      buffer: '-&1',
+      offsetStart: index + FITS_BLOCK_LENGTH * index,
+      offsetEnd: index + FITS_BLOCK_LENGTH + FITS_BLOCK_LENGTH * index
     }
   })
 
