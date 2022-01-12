@@ -10,4 +10,15 @@
  * systems at the time FITS was developed in 1979.
  *
  */
-export const FITS_BLOCK_LENGTH = 2880
+export const FITS_BLOCK_LENGTH: number = 2880
+
+/**
+ *
+ * FITS_ROW_LENGTH
+ *
+ * The maximum row length of a FITS block, each block is partitioned
+ * into rows or lines of 80 characters in spacing, such that each
+ * block contains a maximum of 36 rows.
+ *
+ */
+export const FITS_ROW_LENGTH: number = 80
