@@ -2,7 +2,7 @@
 export { B, I, J, hasDataUnit } from './dataunit'
 
 // Flexible Image Transport System (FITS) Header
-export { parseFITSHeaderRow } from './header'
+export { getFITSHeaders, parseFITSHeaderRow } from './header'
 
 // Flexible Image Transport System (FITS)
 export { getFITSBlocks } from './fits'
