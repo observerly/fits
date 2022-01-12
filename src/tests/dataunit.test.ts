@@ -1,6 +1,6 @@
 import { describe, expect, it, suite } from 'vitest'
 
-import { I, J, hasDataUnit } from '..'
+import { I, J, hasDataUnit, swopEndian } from '..'
 
 suite('@observerly/fits Data Unit', () => {
   describe('FITS Big Endian Swop', () => {
@@ -40,6 +40,30 @@ suite('@observerly/fits Data Unit', () => {
     it('J should return the correct value', () => {
       const value = J(64)
       expect(value).toBe(1073741824)
+    })
+  })
+
+  describe('FITS Swop Endian', () => {
+    it('swopEndian should be defined', () => {
+      expect(swopEndian).toBeDefined()
+    })
+
+    it('swopEndian should return the correct value', () => {
+      const bitpix = 8
+      const value = swopEndian(bitpix)(8)
+      expect(value).toBe(8)
+    })
+
+    it('swopEndian should return the correct value', () => {
+      const bitpix = 16
+      const value = swopEndian(bitpix)(8)
+      expect(value).toBe(2048)
+    })
+
+    it('swopEndian should return the correct value', () => {
+      const bitpix = 32
+      const value = swopEndian(bitpix)(8)
+      expect(value).toBe(134217728)
     })
   })
 
