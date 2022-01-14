@@ -16,6 +16,7 @@ export const getFITSBlocks = (size: number): { blocks: FITSBlock[] } => {
   const blocks = i.map((_value, index: number) => {
     return {
       buffer: '-&1',
+      parsed: false,
       offsetStart: index + FITS_BLOCK_LENGTH * index,
       offsetEnd: index + FITS_BLOCK_LENGTH + FITS_BLOCK_LENGTH * index
     }
