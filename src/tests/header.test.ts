@@ -1,6 +1,6 @@
 import { describe, expect, it, suite } from 'vitest'
 
-import { getFITSHeaders, parseFITSHeaderRow } from '../header'
+import { getFITSHeaders, parseFITSHeaderBlock, parseFITSHeaderRow } from '../header'
 
 suite('@observerly/fits Header', () => {
   describe('FITS File Header Extraction', () => {
@@ -27,7 +27,13 @@ suite('@observerly/fits Header', () => {
     })
   })
 
-  describe('FITS File Header Parsing', () => {
+  describe('FITS File Header Block Parsing', () => {
+    it('parseFITSHeaderBlock should be defined', () => {
+      expect(parseFITSHeaderBlock).toBeDefined()
+    })
+  })
+
+  describe('FITS File Header Row Parsing', () => {
     it('parseFITSHeaderRow should be defined', () => {
       expect(parseFITSHeaderRow).toBeDefined()
     })
