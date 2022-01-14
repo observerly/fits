@@ -1,6 +1,19 @@
 export interface FITSBlock {
   /**
    *
+   * ArrayBuffer of the block being read-in
+   *
+   */
+  buffer: string | ArrayBuffer
+  /**
+   *
+   *
+   * Have we parsed the current block?
+   *
+   */
+  parsed?: boolean
+  /**
+   *
    * Some offset value giving the offset start in bytes of the current block
    *
    */
@@ -11,10 +24,4 @@ export interface FITSBlock {
    *
    */
   offsetEnd: number
-  /**
-   *
-   * ArrayBuffer of the block being read-in
-   *
-   */
-  buffer: string | ArrayBuffer
 }
