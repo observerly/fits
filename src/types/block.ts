@@ -7,6 +7,12 @@ export interface FITSBlock {
   buffer: string | ArrayBuffer
   /**
    *
+   * The ArrayBuffer as a raw parsed string
+   *
+   */
+  s?: string
+  /**
+   *
    *
    * Have we parsed the current block?
    *
