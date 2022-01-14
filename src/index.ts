@@ -8,4 +8,4 @@ export { getFITSHeaders, parseFITSHeaderRow } from './header'
 export { getFITSBlocks } from './fits'
 
 // Utilities
-export { getExcessByteSize } from './utilities'
+export { getExcessByteSize, readBlockAsArrayBuffer } from './utilities'
