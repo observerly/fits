@@ -1,15 +1,18 @@
 import type { FITSHeader } from '../types'
 
 import { FITS_ROW_LENGTH } from '../fits/constants'
+
 import { parseFITSHeaderRow } from '.'
 
 /**
  *
  * getFITSHeaders()
  *
+ * @description obtains the header for a specific FITS block of size 2880 bytes
+ *
  * @see https://fits.gsfc.nasa.gov/standard40/fits_standard40aa.pdf
  *
- * @param block
+ * @param block of type string
  * @returns the extracted headers relating to the parsing method
  */
 export const getFITSHeaders = (block: string): FITSHeader[] => {
