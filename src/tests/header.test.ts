@@ -2,7 +2,12 @@ import type { FITSHeader } from '../types'
 
 import { describe, expect, it, suite } from 'vitest'
 
-import { getFITSHeaders, parseFITSHeaderBlock, parseFITSHeaderRow } from '..'
+import {
+  getFITSHeaders,
+  parseFITSHeaderBlock,
+  parseFITSHeaderRow,
+  readFITSHeaderFromBlocks
+} from '..'
 
 suite('@observerly/fits Header', () => {
   describe('FITS File Header Extraction', () => {
@@ -124,6 +129,12 @@ suite('@observerly/fits Header', () => {
       expect(key).toBe('HISTORY')
       expect(value).toBe('An unspecified record')
       expect(comment).toBe('An unspecified record')
+    })
+  })
+
+  describe('FITS File Header Blocks Reading', () => {
+    it('readFITSHeaderFromBlocks should be defined', () => {
+      expect(readFITSHeaderFromBlocks).toBeDefined()
     })
   })
 })
