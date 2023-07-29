@@ -1,6 +1,9 @@
 name: fits/vitest
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -12,7 +15,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [16, 17]
+        node: [18, 19]
 
     env:
       NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -39,8 +42,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Install pnpm globally
+        run: npm install -g pnpm@8.6.1
+
       - name: Install project dependencies 👨🏻‍💻
-        run: npm ci
+        run: pnpm install
+
+      - name: Build the package ready for publishing
+        run: pnpm run build
 
       - name: Run vitest tests 🧪
-        run: npm run test
+        run: pnpm run test

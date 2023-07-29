@@ -1,6 +1,16 @@
+/*****************************************************************************************************************/
+
+// @author         Michael Roberts <michael@observerly.com>
+// @package        @observerly/fits
+// @license        Copyright © 2021-2023 observerly
+
+/*****************************************************************************************************************/
+
 import { describe, expect, it, suite } from 'vitest'
 
 import { getExcessByteSize } from '../utilities'
+
+/*****************************************************************************************************************/
 
 suite('@observerly/fits Utilities', () => {
   describe('FITS File Parsing Utilities', () => {
@@ -14,3 +24,5 @@ suite('@observerly/fits Utilities', () => {
     })
   })
 })
+
+/*****************************************************************************************************************/

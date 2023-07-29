@@ -8,7 +8,7 @@ import { resolve } from 'path'
 export default defineConfig({
   test: {
     watch: false,
-    environment: 'jsdom'
+    environment: 'happy-dom'
   },
   plugins: [
     typescript({

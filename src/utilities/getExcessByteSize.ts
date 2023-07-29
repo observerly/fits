@@ -1,3 +1,11 @@
+/*****************************************************************************************************************/
+
+// @author         Michael Roberts <michael@observerly.com>
+// @package        @observerly/fits
+// @license        Copyright © 2021-2023 observerly
+
+/*****************************************************************************************************************/
+
 /**
  *
  * getExcessByteSize()
@@ -9,3 +17,5 @@
 export const getExcessByteSize = (length: number, size: number): number => {
   return (length - (size % length)) % length
 }
+
+/*****************************************************************************************************************/
