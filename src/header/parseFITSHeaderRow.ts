@@ -1,4 +1,14 @@
+/*****************************************************************************************************************/
+
+// @author         Michael Roberts <michael@observerly.com>
+// @package        @observerly/fits
+// @license        Copyright © 2021-2023 observerly
+
+/*****************************************************************************************************************/
+
 import type { FITSHeader } from '../types'
+
+/*****************************************************************************************************************/
 
 /**
  *
@@ -22,7 +32,7 @@ export const parseFITSHeaderRow = (line: string): FITSHeader => {
   const indicator = line.slice(8, 10)
 
   if (indicator !== '= ') {
-    // If it doesn't, we're probably dealing with a COMMENT / HISTORY record
+    // If it doesn't, we're probably dealing with a CONTINUE / COMMENT / HISTORY record
     value = line.slice(8).trim()
 
     return {
@@ -57,3 +67,5 @@ export const parseFITSHeaderRow = (line: string): FITSHeader => {
     comment
   }
 }
+
+/*****************************************************************************************************************/

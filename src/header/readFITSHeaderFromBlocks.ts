@@ -1,8 +1,18 @@
+/*****************************************************************************************************************/
+
+// @author         Michael Roberts <michael@observerly.com>
+// @package        @observerly/fits
+// @license        Copyright © 2021-2023 observerly
+
+/*****************************************************************************************************************/
+
 import { FITSBlock } from '../types'
 
 import { parseFITSHeaderBlock } from '../header'
 
 import { readBlockAsArrayBuffer } from '../utilities'
+
+/*****************************************************************************************************************/
 
 /**
  *

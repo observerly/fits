@@ -1,9 +1,11 @@
 name: fits/publish
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   ci:
@@ -12,7 +14,11 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [17]
+        node: [18]
+
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout 🛎
@@ -35,11 +41,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Install pnpm globally
+        run: npm install -g pnpm@8.6.1
+
       - name: Install project dependencies 👨🏻‍💻
-        run: npm ci
+        run: pnpm install
 
       - name: Build the package ready for publishing
-        run: npm run build
+        run: pnpm run build
 
       - uses: JS-DevTools/npm-publish@v1
         with:
@@ -49,4 +58,4 @@ jobs:
 
       - if: steps.publish.outputs.type != 'none'
         run: |
-          echo "@observerly/polaris package version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+          echo "@observerly/fits package version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
