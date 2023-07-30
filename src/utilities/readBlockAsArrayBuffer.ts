@@ -19,8 +19,8 @@
  */
 export const readBlockAsArrayBuffer = async (
   block: Blob,
-  callback: (result: ArrayBuffer) => { s: string; end: boolean; parsed: boolean }
-): Promise<{ s: string; end: boolean; parsed: boolean }> => {
+  callback: (result: ArrayBuffer) => { headers: string[]; end: boolean; parsed: boolean }
+): Promise<{ headers: string[]; end: boolean; parsed: boolean }> => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader()
 
@@ -30,7 +30,7 @@ export const readBlockAsArrayBuffer = async (
       }
 
       resolve({
-        s: '',
+        headers: [],
         end: false,
         parsed: false
       })

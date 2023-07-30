@@ -21,6 +21,12 @@ export interface FITSBlock {
   s?: string
   /**
    *
+   * The ArrayBuffer as a raw parsed array of strings
+   *
+   */
+  headers: string[]
+  /**
+   *
    *
    * Have we parsed the current block?
    *

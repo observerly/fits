@@ -31,10 +31,10 @@ export const readFITSHeaderFromBlocks = async (
     const blob = file.slice(block.offsetStart, block.offsetEnd)
 
     // read the block from the array buffer asynchronously:
-    const { s, end, parsed } = await readBlockAsArrayBuffer(blob, parseFITSHeaderBlock)
+    const { headers, end, parsed } = await readBlockAsArrayBuffer(blob, parseFITSHeaderBlock)
 
     // the raw parsed string from the array buffer:
-    block.s = s
+    block.headers = headers
     // make a note of the block that has been parsed:
     block.parsed = parsed
 
