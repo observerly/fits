@@ -1,29 +1,37 @@
 {
   "name": "@observerly/fits",
   "version": "0.0.0",
+  "description": "fits is observerly's zero-dependency library for reading images stored in the FITS astronomical format written in Typescript.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/observerly/fits"
+    "url": "git+https://github.com/observerly/fits.git"
   },
+  "author": "Micheal J. Roberts",
   "prepublish": "tsc",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/observerly"
   },
+  "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/fits.umd.js",
-  "module": "./dist/fits.es.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/fits.umd.cjs",
+  "module": "./dist/fits.js",
   "exports": {
     ".": {
-      "import": "./dist/fits.es.js",
-      "require": "./dist/fits.umd.js"
+      "import": "./dist/fits.js",
+      "require": "./dist/fits.umd.cjs"
     }
+  },
+  "types": "./dist/index.d.ts",
+  "release": {
+    "branches": [
+      "main"
+    ]
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest"
   },
