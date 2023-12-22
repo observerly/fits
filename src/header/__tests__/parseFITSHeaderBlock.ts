@@ -6,7 +6,18 @@
 
 /*****************************************************************************************************************/
 
-export { type FITSBlock } from './block'
-export { type FITSHeader } from './header'
+import { describe, expect, it, suite } from 'vitest'
+
+import { parseFITSHeaderBlock } from '../'
+
+/*****************************************************************************************************************/
+
+suite('@observerly/fits Header', () => {
+  describe('FITS File Header Block Parsing', () => {
+    it('parseFITSHeaderBlock should be defined', () => {
+      expect(parseFITSHeaderBlock).toBeDefined()
+    })
+  })
+})
 
 /*****************************************************************************************************************/

@@ -8,19 +8,19 @@
 
 import { describe, expect, it, suite } from 'vitest'
 
-import { getFITSBlocks } from '../fits'
+import { getExcessByteSize } from '../..'
 
 /*****************************************************************************************************************/
 
-suite('@observerly/fits FITS', () => {
-  describe('FITS File Parsing', () => {
-    it('getFITSBlocks should be defined', () => {
-      expect(getFITSBlocks).toBeDefined()
+suite('@observerly/fits Utilities', () => {
+  describe('FITS File Parsing Utilities', () => {
+    it('getExcessByteSize should be defined', () => {
+      expect(getExcessByteSize).toBeDefined()
     })
 
-    it('getFITSBlocks should return the correct number of blocks', () => {
-      const { blocks } = getFITSBlocks(12594240)
-      expect(blocks.length).toBe(12594240 / 2880)
+    it('getExcessByteSize should return the correct number of excess bytes', () => {
+      const excess = getExcessByteSize(2880, 68)
+      expect(excess).toBe(2880 - 68)
     })
   })
 })
