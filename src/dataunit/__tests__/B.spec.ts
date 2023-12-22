@@ -6,7 +6,18 @@
 
 /*****************************************************************************************************************/
 
-export { type FITSBlock } from './block'
-export { type FITSHeader } from './header'
+import { describe, expect, it, suite } from 'vitest'
+
+import { B } from '..'
+
+/*****************************************************************************************************************/
+
+suite('@observerly/fits Data Unit', () => {
+  describe('FITS Big Endian Swop', () => {
+    it('B should be defined', () => {
+      expect(B).toBeDefined()
+    })
+  })
+})
 
 /*****************************************************************************************************************/
