@@ -19,7 +19,7 @@ suite('@observerly/fits FITS', () => {
     })
 
     it('getFITSBlocks should return the correct number of blocks', () => {
-      const { blocks } = getFITSBlocks(12594240)
+      const blocks = getFITSBlocks(12594240)
       expect(blocks.length).toBe(12594240 / 2880)
     })
   })
