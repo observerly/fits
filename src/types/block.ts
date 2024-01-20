@@ -6,6 +6,10 @@
 
 /*****************************************************************************************************************/
 
+import { type FITSHeader } from '../types'
+
+/*****************************************************************************************************************/
+
 export interface FITSBlock {
   /**
    *
@@ -24,7 +28,7 @@ export interface FITSBlock {
    * The ArrayBuffer as a raw parsed array of strings
    *
    */
-  headers: string[]
+  headers: FITSHeader[]
   /**
    *
    *

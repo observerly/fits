@@ -6,9 +6,9 @@
 
 /*****************************************************************************************************************/
 
-import { FITSBlock } from '../types'
+import { FITSBlock, FITSHeader } from '../types'
 
-import { parseFITSHeaderBlock } from '../header'
+import { parseFITSHeaderRow, parseFITSHeaderBlock } from '../header'
 
 import { readBlockAsArrayBuffer } from '../utilities'
 
@@ -25,7 +25,10 @@ import { readBlockAsArrayBuffer } from '../utilities'
 export const readFITSHeaderFromBlocks = async (
   file: File,
   blocks: FITSBlock[]
-): Promise<FITSBlock[]> => {
+): Promise<{
+  headers: FITSHeader[]
+  blocks: FITSBlock[]
+}> => {
   for (const block of blocks) {
     // obtain the individual slices of the file:
     const blob = file.slice(block.offsetStart, block.offsetEnd)
@@ -34,7 +37,10 @@ export const readFITSHeaderFromBlocks = async (
     const { headers, end, parsed } = await readBlockAsArrayBuffer(blob, parseFITSHeaderBlock)
 
     // the raw parsed string from the array buffer:
-    block.headers = headers
+    for (const header of headers) {
+      block.headers.push(parseFITSHeaderRow(header))
+    }
+
     // make a note of the block that has been parsed:
     block.parsed = parsed
 
@@ -43,5 +49,8 @@ export const readFITSHeaderFromBlocks = async (
   }
 
   // return the original blocks:
-  return blocks
+  return {
+    blocks,
+    headers: blocks.flatMap(block => block.headers)
+  }
 }
