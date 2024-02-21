@@ -6,6 +6,7 @@
 
 /*****************************************************************************************************************/
 
+export { sanitizeString } from './sanitizeString'
 export { getExcessByteSize } from './getExcessByteSize'
 export { readBlockAsArrayBuffer } from './readBlockAsArrayBuffer'
 
