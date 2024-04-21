@@ -1,0 +1,9 @@
+{
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": "..",
+    "target": "local"
+  },
+  "forwardPorts": [],
+  "postStartCommand": "/bin/zsh"
+}
