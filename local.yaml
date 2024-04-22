@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  fits: &fits
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: local
+    image: observerly/fits:local
+    container_name: observerly_fits
+    env_file:
+      - .env
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./:/usr/src/app
