@@ -6,7 +6,7 @@
 
 /*****************************************************************************************************************/
 
-import { FITS_BLOCK_LENGTH, FITS_ROW_LENGTH } from '../fits/constants'
+import { FITS_ROW_LENGTH } from '../fits/constants'
 
 /*****************************************************************************************************************/
 
@@ -25,35 +25,35 @@ export const parseFITSHeaderBlock = (
   block: ArrayBuffer
 ): { headers: string[]; end: boolean; parsed: boolean } => {
   const arr = new Uint8Array(block)
+  const headers: string[] = []
 
-  let headers: string[] = []
+  let foundEnd = false
 
-  for (var i = 0; i < arr.length; i += FITS_ROW_LENGTH) {
+  for (let i = 0; i < arr.length; i += FITS_ROW_LENGTH) {
+    // Extract 80 bytes for the row
     const row = arr.slice(i, i + FITS_ROW_LENGTH)
+    const rowText = String.fromCharCode(...row)
 
-    const cchar = arr[i]
+    // Trim the row for easier checking
+    const trimmed = rowText.trim()
 
-    if (cchar === 32) {
+    // If row is all blanks, skip it
+    if (trimmed.length === 0) {
       continue
     }
 
-    let header = ''
-
-    for (let value of row) {
-      header += String.fromCharCode(value)
+    if (trimmed.startsWith('END')) {
+      foundEnd = true
+      break
     }
 
-    const h = header.trim()
-
-    if (h !== 'END') {
-      headers.push(h)
-    }
+    headers.push(trimmed)
   }
 
   return {
     headers,
-    end: true,
-    parsed: true
+    end: foundEnd, // So we only set end = true if we found the END keyword
+    parsed: headers.length > 0
   }
 }
 
