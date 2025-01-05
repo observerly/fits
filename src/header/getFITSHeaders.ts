@@ -36,7 +36,7 @@ export const getFITSHeaders = (block: string): FITSHeader[] => {
   // astrometry are near the top.
   const maximumBlockRow = 600
 
-  let numberofRowPerBlock =
+  const numberofRowPerBlock =
     block.length / FITS_ROW_LENGTH < maximumBlockRow
       ? block.length / FITS_ROW_LENGTH
       : maximumBlockRow
