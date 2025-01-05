@@ -56,7 +56,7 @@ export const parseFITSHeaderRow = (line: string): FITSHeader => {
   }
 
   if (v.length === 1 && ['T', 'F'].includes(v)) {
-    value = 'T' ? true : false
+    value = v === 'T' ? true : false
   }
 
   const comment = c ? c.trim() : ''
