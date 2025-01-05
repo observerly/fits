@@ -14,15 +14,11 @@ import { defineConfig } from 'vite'
 
 import typescript from '@rollup/plugin-typescript'
 
-import { resolve } from 'path'
+import { resolve } from 'node:path'
 
 /*****************************************************************************************************************/
 
 export default defineConfig({
-  test: {
-    watch: false,
-    environment: 'happy-dom'
-  },
   plugins: [
     typescript({
       tsconfig: './tsconfig.json'
