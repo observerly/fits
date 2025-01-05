@@ -8,7 +8,7 @@
 
 import { describe, expect, it, suite } from 'vitest'
 
-import { type FITSHeader } from '../../types'
+import type { FITSHeader } from '../../types'
 
 import { getFITSHeaders } from '../'
 

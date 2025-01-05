@@ -6,7 +6,7 @@
 
 /*****************************************************************************************************************/
 
-import { FITSBlock, FITSHeader } from '../types'
+import type { FITSBlock, FITSHeader } from '../types'
 
 import { parseFITSHeaderRow, parseFITSHeaderBlock } from '../header'
 
