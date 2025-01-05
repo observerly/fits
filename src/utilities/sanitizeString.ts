@@ -9,7 +9,8 @@
 export function sanitizeString(unsanitizedInput: string): string {
   // Remove any special characters that can cause issues with the FITS standard:
   const sanitisedOutput = unsanitizedInput
-    // Replace non-UTF-8 characters, apostrophes, newlines, and carriage returns with an empty string
+    // Replace non-UTF-8 characters, apostrophes, newlines, and carriage returns with an empty string:
+    // biome-ignore lint/suspicious/noControlCharactersInRegex: This is a false positive as the regex is used to remove control characters
     .replace(/[^\x00-\x7F]|'|\n|\r/g, '')
     // Remove special characters e.g., !@#$%^&*():
     .replace(/[!@#$%^&*()]/g, '')

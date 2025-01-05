@@ -8,7 +8,7 @@
 
 import type { FITSBlock, FITSHeader } from '../types'
 
-import { parseFITSHeaderRow, parseFITSHeaderBlock } from '../header'
+import { parseFITSHeaderBlock, parseFITSHeaderRow } from '../header'
 
 import { readBlockAsArrayBuffer } from '../utilities'
 
