@@ -1,4 +1,4 @@
-name: fits/vitest
+name: fits/test
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [18, 19]
+        node: [18, 20, 22]
 
     env:
       NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
