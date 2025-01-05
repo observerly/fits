@@ -12,9 +12,7 @@
     "registry": "https://npm.pkg.github.com/observerly"
   },
   "type": "module",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "./dist/fits.umd.cjs",
   "module": "./dist/fits.js",
   "exports": {
@@ -25,31 +23,25 @@
   },
   "types": "./dist/index.d.ts",
   "release": {
-    "branches": [
-      "main"
-    ]
+    "branches": ["main"]
   },
-  "os": [
-    "darwin",
-    "linux"
-  ],
+  "os": ["darwin", "linux"],
   "packageManager": "pnpm@8.10.2",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "lint": "biome lint",
+    "format": "biome format"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@rollup/plugin-typescript": "^11.1.2",
     "@types/node": "^20.4.5",
     "@vitest/coverage-v8": "^2.1.8",
     "canvas": "^3.0.1",
-    "eslint": "8.42.0",
-    "eslint-config-prettier": "8.8.0",
-    "eslint-plugin-unused-imports": "2.0.0",
     "happy-dom": "^10.5.2",
-    "prettier": "^2.8.8",
     "tslib": "^2.6.1",
     "tsup": "^8.3.5",
     "typescript": "^5.1.3",
