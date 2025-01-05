@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "biomejs.biome", 
+    "github.vscode-github-actions",
+    "ms-vscode.vscode-typescript", 
+    "ppp-one.simple-fits-viewer",
+    "ZainChen.json"
+  ]
+}
