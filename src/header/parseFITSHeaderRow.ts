@@ -51,12 +51,12 @@ export const parseFITSHeaderRow = (line: string): FITSHeader => {
     value = v.slice(1, -1).trim()
   }
 
-  if (!isNaN(parseFloat(v))) {
-    value = parseFloat(v)
+  if (!Number.isNaN(Number.parseFloat(v))) {
+    value = Number.parseFloat(v)
   }
 
   if (v.length === 1 && ['T', 'F'].includes(v)) {
-    value = v === 'T' ? true : false
+    value = v === 'T'
   }
 
   const comment = c ? c.trim() : ''
