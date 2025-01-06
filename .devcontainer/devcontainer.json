@@ -4,6 +4,64 @@
     "context": "..",
     "target": "local"
   },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "biomejs.biome",
+        "github.vscode-github-actions",
+        "ms-vscode.vscode-typescript",
+        "ppp-one.simple-fits-viewer",
+        "ZainChen.json"
+      ]
+    },
+    "recommendations": [
+      "biomejs.biome",
+      "github.vscode-github-actions",
+      "ms-vscode.vscode-typescript",
+      "ppp-one.simple-fits-viewer",
+      "ZainChen.json"
+    ],
+    "settings": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "biomejs.biome",
+      "typescript.preferences.importModuleSpecifier": "relative",
+      "typescript.format.enable": false,
+      "typescript.tsdk": "node_modules/typescript/lib",
+      "[typescript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+      },
+      "[javascript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+      },
+      "[json]": {
+        "editor.defaultFormatter": "biomejs.biome"
+      },
+      "files.exclude": {
+        "**/node_modules": true,
+        "**/.git": true,
+        "**/.DS_Store": true
+      },
+      "files.watcherExclude": {
+        "**/node_modules": true,
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true
+      },
+      "editor.codeActionsOnSave": {
+        "editor.formatOnSave": "always",
+        "source.organizeImports": "always",
+        "source.sortImports": "always",
+        "source.fixAll": "always",
+        "quickfix.biome": "explicit"
+      },
+      "terminal.integrated.defaultProfile.linux": "zsh",
+      "terminal.integrated.profiles.linux": {
+        "zsh": {
+          "path": "zsh"
+        }
+      }
+    }
+  },
   "forwardPorts": [],
   "postStartCommand": "/bin/zsh"
 }
