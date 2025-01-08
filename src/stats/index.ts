@@ -8,6 +8,7 @@
 
 export { mean } from './mean'
 export { median } from './median'
+export { performLinearRegression, type Point } from './regression'
 export { variance } from './variance'
 
 /*****************************************************************************************************************/
