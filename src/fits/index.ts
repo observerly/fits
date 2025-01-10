@@ -6,6 +6,7 @@
 
 /*****************************************************************************************************************/
 
+export { FITS } from './fits'
 export { getFITSBlocks } from './getFITSBlocks'
 export { readBlocksFromFile } from './readBlocksFromFile'
 
