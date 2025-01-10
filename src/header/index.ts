@@ -13,3 +13,7 @@ export { parseHeadersFromBlocks } from './parseHeadersFromBlocks'
 export { readFITSHeaderFromBlocks } from './readFITSHeaderFromBlocks'
 
 /*****************************************************************************************************************/
+
+export type { FITSHeader } from '../types'
+
+/*****************************************************************************************************************/
