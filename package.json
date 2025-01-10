@@ -29,7 +29,7 @@
   "packageManager": "pnpm@8.10.2",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "tsup",
     "format": "npx @biomejs/biome format --write",
     "lint": "npx @biomejs/biome lint --write",
     "preview": "vite preview",
