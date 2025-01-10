@@ -15,6 +15,7 @@ dist-ssr
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/recommendations.json
 .idea
 .DS_Store
 *.suo
@@ -28,4 +29,11 @@ dist-ssr
 
 # Environment
 .env
+
+# Output
+/output/*.fit
+/output/*.fits
+/output/*.jpg
+/output/*.jpeg
+/output/*.tiff
 
