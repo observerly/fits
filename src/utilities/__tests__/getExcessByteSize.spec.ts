@@ -8,7 +8,7 @@
 
 import { describe, expect, it, suite } from 'vitest'
 
-import { getExcessByteSize } from '../..'
+import { getExcessByteSize } from '../getExcessByteSize'
 
 /*****************************************************************************************************************/
 

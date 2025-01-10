@@ -8,7 +8,7 @@
 
 import { describe, expect, it, suite } from 'vitest'
 
-import { sanitizeString } from '../..'
+import { sanitizeString } from '../sanitizeString'
 
 /*****************************************************************************************************************/
 
