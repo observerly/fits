@@ -8,7 +8,7 @@ The key tenants of the library is to use as JavaScript primatives, where we do n
 
 The final output image is a 2D array of pixel values, which can be used to render the image in a canvas, or any other image rendering library of choice. The final output image pixel values is a ZScaleInterval of the original pixel values, returned as a Float32Array.
 
-The library makes no opinion of what you can do with the resulting image data, and is designed to be as flexible as possible to allow the user to use the data in any way they see fit, whether that be rendering the image, or processing the data in some other way. However, it is more than possible to convert the values to an RGBA Uint8ClampedArray for use with the HTMLCanvasElement, the [Canvas_API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) or any other image rendering library of choice.
+The library makes no opinion of what you can do with the resulting image data, and is designed to be as flexible as possible to allow the user to use the data in any way they see fit, whether that be rendering the image, or processing the data in some other way. However, it is more than possible to convert the values to an RGBA Uint8ClampedArray for use with the HTMLCanvasElement, the [Web Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) or any other image rendering library of choice.
  
 ### Installation
 
@@ -85,31 +85,43 @@ const image = fits.getImageHDU() // of type Float32Array
 #### 2D CanvasHTMLElement Rendering
 
 ```ts
+import { FITS, ZScaleInterval } from '@observerly/fits'
+
 // ... load FITS file as above
 
-const image = fits.getImageHDU() // of type Float32Array
+const image = fits.getImageHDU() // of type Float32Array (uncorrected):
 
 const canvas = document.createElement('canvas')
 
-canvas.width = fits.getHeader('NAXIS1')
+canvas.width = fits.width
 
-canvas.height = fits.getHeader('NAXIS2')
+canvas.height = fits.height
 
 const ctx = canvas.getContext('2d')
 
 const imageData = ctx.createImageData(canvas.width, canvas.height)
 
-const data = imageData.data
+// Compute ZScaleInterval to the image data:
+const { vmin, vmax } = ZScaleInterval(image)
 
-for (let i = 0; i < image.length; i++) {
-  const value = image[i]
-  data[i * 4] = value
-  data[i * 4 + 1] = value
-  data[i * 4 + 2] = value
-  data[i * 4 + 3] = 255
+// Normalize the data to the [0..255] range
+const normalizedData = new Float32Array(resolution)
+
+// Normalize the data to the [0..255] range, e.g., a Uint8ClampedArray:
+for (let i = 0; i < resolution; i++) {
+  normalizedData[i] = ((image[i] - vmin) / (vmax - vmin)) * 255
 }
 
-ctx.putImageData(imageData, 0, 0)
+// Convert the Float32Array to a Uint8ClampedArray:
+for (let i = 0; i < image.length; i++) {
+  const value = image[i]
+  normalizedData[i * 4] = value
+  normalizedData[i * 4 + 1] = value
+  normalizedData[i * 4 + 2] = value
+  normalizedData[i * 4 + 3] = 255
+}
+
+ctx.putImageData(normalizedData, 0, 0)
 ```
 
 ## Miscellany
