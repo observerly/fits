@@ -1,6 +1,6 @@
 {
   "name": "@observerly/fits",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "fits is observerly's zero-dependency library for reading images stored in the FITS astronomical format written in Typescript.",
   "repository": {
     "type": "git",
